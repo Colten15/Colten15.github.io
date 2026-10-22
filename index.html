@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colten Lin</title>
+<meta name="description" content="Colten Lin: MIS at UGA Terry College of Business. Sales, cloud, and data.">
+<meta property="og:title" content="Colten Lin">
+<meta property="og:description" content="MIS @ UGA Terry · AWS Certified · Sales, cloud, and data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #17171a;
+    --muted: #5e5e66;
+    --line: #e7e4df;
+    --accent: #ba0c2f;
+    --accent-soft: #f8e7ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111113;
+      --surface: #19191c;
+      --text: #f1f0ee;
+      --muted: #a2a1a8;
+      --line: #2a2a2f;
+      --accent: #ff5a73;
+      --accent-soft: #2b1519;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-top: 10px; padding-bottom: 10px; }
+  nav .wrap::-webkit-scrollbar { display: none; }
+  nav a {
+    flex: none; text-decoration: none; font-size: 14px; font-weight: 500;
+    color: var(--muted); padding: 6px 12px; border-radius: 999px;
+  }
+  nav a:hover, nav a.on { color: var(--text); background: var(--line); }
+
+  /* Hero */
+  header { padding: 56px 0 40px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
+  h1 { font-family: Fraunces, Georgia, serif; font-weight: 650; font-size: clamp(40px, 9vw, 60px); line-height: 1.02; letter-spacing: -.02em; margin: 0 0 18px; }
+  .lede { font-size: 18px; color: var(--muted); margin: 0 0 28px; max-width: 34em; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    font-weight: 600; font-size: 15px; padding: 12px 18px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--surface);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn svg { width: 17px; height: 17px; }
+
+  /* Sections */
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 28px; letter-spacing: -.01em; margin: 0 0 20px; }
+  p { margin: 0 0 14px; }
+  .muted { color: var(--muted); }
+
+  .item { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .item-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+  .item h3 { font-size: 17px; font-weight: 600; margin: 0; }
+  .when { font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .org { color: var(--muted); font-size: 15px; margin: 2px 0 8px; }
+  ul { margin: 6px 0 0; padding-left: 18px; }
+  li { margin: 4px 0; }
+
+  .cards { display: grid; gap: 14px; }
+  @media (min-width: 640px) { .cards { grid-template-columns: 1fr 1fr; } }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px; display: flex; flex-direction: column;
+  }
+  .card h3 { font-size: 17px; margin: 0 0 6px; }
+  .card p { font-size: 15px; color: var(--muted); flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+  .tag { font-size: 12px; font-weight: 500; padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+  .links { display: flex; gap: 14px; font-size: 14px; font-weight: 600; }
+  .links a { text-decoration: none; color: var(--accent); }
+
+  .certs { display: grid; gap: 10px; }
+  .cert { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .cert strong { font-weight: 600; }
+  .badge { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .badge.done { background: #e3f4e8; color: #17703a; }
+  .badge.prog { background: var(--line); color: var(--muted); }
+  @media (prefers-color-scheme: dark) { .badge.done { background: #143221; color: #6fd894; } }
+
+  .skills { display: grid; gap: 14px; }
+  .skills div strong { display: block; font-size: 14px; margin-bottom: 2px; }
+  .skills div span { color: var(--muted); font-size: 15px; }
+
+  footer { padding: 32px 0 56px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certifications</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header>
+    <p class="eyebrow">MIS · UGA Terry College of Business</p>
+    <h1>Colten Lin</h1>
+    <p class="lede">I sit between the business side and the tech side: B2B sales experience, an AWS cert, and a habit of building things. Looking for full-time roles starting 2027.</p>
+    <div class="cta">
+      <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+        Resume
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/coltenlin" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="https://github.com/Colten15" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm a senior studying Management Information Systems at the University of Georgia's Terry College of Business. This past summer I was a Consulting Sales Intern at Mythics, running outbound prospecting across dozens of commercial accounts. In class I've built relational databases, Tableau dashboards, Spark data pipelines, and a production website for a student organization.</p>
+    <p>I'm most interested in roles where understanding the technology makes you better at the business: tech sales, consulting, and risk or data work.</p>
+    <p class="muted">Outside of work: basketball (played through high school and helped run youth camps), following most major sports, and building PCs.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="item">
+      <div class="item-head"><h3>Consulting Sales Intern, Commercial</h3><span class="when">May – Aug 2026</span></div>
+      <p class="org">Mythics, LLC · Virginia Beach, VA</p>
+      <ul>
+        <li>Executed 600+ cold calls and outreach emails across 60 to 70 target accounts with a multi-touch cadence per account.</li>
+        <li>Tracked call and email outcomes in Excel to find the best-performing messaging.</li>
+        <li>Partnered with account executives on account research and outreach sequencing for Oracle cloud consulting engagements.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><h3>Student Consultant, ImagineX Consulting</h3><span class="when">Jan – May 2026</span></div>
+      <p class="org">Business Process Management Project (MIST 5750) · Athens, GA</p>
+      <ul>
+        <li>Mapped an ImagineX business process end to end, documenting pain points and handoff delays.</li>
+        <li>Used Lean Waste and Cycle Time analysis to find bottlenecks, then designed a To-Be process to remove them.</li>
+        <li>Built an ADKAR change management plan to drive stakeholder adoption.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><h3>Ticketing Services Representative</h3><span class="when">Jan 2026 – Present</span></div>
+      <p class="org">The Classic Center · Athens, GA</p>
+      <ul>
+        <li>Process online and mobile ticket sales and support the ticketing department with inventory and data maintenance.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><h3>Student Project Leader, Study Abroad</h3><span class="when">Jun – Jul 2025</span></div>
+      <p class="org">Terry College of Business · Milan, Italy</p>
+      <ul>
+        <li>Led a cross-cultural team of 3 on a business consulting project, owning scope, delegation, and meetings.</li>
+        <li>Worked with two international partner universities on business case studies and presentations.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-head"><h3>B.B.A., Management Information Systems</h3><span class="when">May 2027</span></div>
+      <p class="org">University of Georgia, Terry College of Business · GPA 3.66</p>
+      <ul>
+        <li>Coursework: Data Management &amp; Analytics, Project Management, Data Engineering, IT Infrastructure, Secure Cloud Development.</li>
+        <li>Member, Society of Management Information Systems and The National Society of Leadership and Success.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Pre-Dental Society Website</h3>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span></div>
+        <p>Project managed a team building a live website for UGA's Pre-Dental Society, with GSAP and Lenis for animation and smooth scrolling.</p>
+        <div class="links"><a href="https://pdss-1.vercel.app" target="_blank" rel="noopener">Live site →</a></div>
+      </article>
+
+      <article class="card">
+        <h3>Spotify Relational Database</h3>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Data modeling</span></div>
+        <p>Designed and built a relational database modeling Spotify's users, subscriptions, billing, and playlists, then wrote queries for marketing and retention insights.</p>
+        <div class="links"><a href="https://github.com/Colten15/Team-1-MIST-4610-Project-Group-1" target="_blank" rel="noopener">Repo →</a></div>
+      </article>
+
+      <article class="card">
+        <h3>NASA Meteorite Landings Analysis</h3>
+        <div class="tags"><span class="tag">Tableau</span><span class="tag">Geospatial</span></div>
+        <p>Analyzed 45,000+ NASA meteorite records to visualize landing trends over time and geographic concentration, and how detection technology skews the historical record.</p>
+        <div class="links"><a href="https://github.com/Colten15/Team-1-MIST4610-Project-2" target="_blank" rel="noopener">Repo →</a></div>
+      </article>
+
+      <article class="card">
+        <h3>ImagineX BPM Consulting Project</h3>
+        <div class="tags"><span class="tag">Process design</span><span class="tag">Lean</span><span class="tag">ADKAR</span></div>
+        <p>Individual consulting engagement: As-Is process discovery, Lean waste and cycle time analysis, a To-Be redesign, and an ADKAR change plan.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2>Certifications</h2>
+    <div class="certs">
+      <div class="cert"><span><strong>AWS Certified Cloud Practitioner</strong><br><span class="muted">Amazon Web Services · Sep 2026</span></span><span class="badge done">Earned</span></div>
+      <div class="cert"><span><strong>OCI Foundations Associate</strong><br><span class="muted">Oracle Cloud Infrastructure · Nov 2025</span></span><span class="badge done">Earned</span></div>
+      <div class="cert"><span><strong>AWS Certified AI Practitioner</strong><br><span class="muted">Amazon Web Services</span></span><span class="badge prog">In progress</span></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><strong>Sales</strong><span>B2B prospecting, cold calling, lead generation, account research, pipeline tracking</span></div>
+      <div><strong>Data</strong><span>SQL, relational modeling, Tableau, Excel, Apache Spark (Java), Spark SQL</span></div>
+      <div><strong>Cloud</strong><span>AWS, Oracle Cloud Infrastructure, AWS Glue, data lake concepts (Delta Lake, Iceberg, Hudi)</span></div>
+      <div><strong>Web</strong><span>Next.js, React, TypeScript, Tailwind CSS</span></div>
+      <div><strong>Business</strong><span>Business process management, Lean, change management (ADKAR), ERP simulation</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>The fastest way to reach me is email or LinkedIn. I'm based in Athens, GA.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:coltenwlin@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/coltenlin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Colten Lin · Hosted on GitHub Pages</div>
+</footer>
+
+<script>
+  // Highlight the nav pill for the section on screen
+  const links = [...document.querySelectorAll('nav a')];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
